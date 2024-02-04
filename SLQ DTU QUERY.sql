@@ -1,6 +1,4 @@
 
- --------------------------------------------------------------------MEGHA GOSWAMI---------------------------------------------------------------------------
-
  SELECT DISTINCT FNAME_CUS FROM TBL_CUSTOMER;
 
  SELECT *
@@ -19,8 +17,6 @@ WHERE EXISTS (
     FROM TBL_WORK_ORDER
     WHERE TBL_WORK_ORDER.CUST_ID_WO = TBL_CUSTOMER.CUST_ID_CUS
 	);
-
-------------------------------------------------------------- PRAGYA DESHAWAR------------------------------------------------------------------------------
 
 --ALTER 
 ALTER TABLE TBL_CUSTOMER
@@ -43,8 +39,6 @@ WHERE FNAME_CUS LIKE 'J%';
 
 SELECT * FROM TBL_CUSTOMER
 WHERE LNAME_CUS LIKE '_hin';
-
------------------------------------------------------------PRACHI SHARMA(34)------------------------------------------------------------------------------
 
 SELECT GENRE_ITM, MAX(PRICE_ITM) AS MaxPrice
 FROM TBL_ORDER_ITEM
@@ -77,9 +71,6 @@ Select * from TBL_ORDER_ITEM;
 SELECT *
 FROM TBL_ORDER_ITEM
 WHERE GENRE_ITM = 'SPORTS' OR PRICE_ITM > 18;
-
-
------------------------------------------------------- SIMRAN PARESH SANGAL-------------------------------------------------------------------------------
 
 -- Count the number of work orders for each customer's first name and display the result in descending order.
 SELECT
@@ -119,10 +110,6 @@ GROUP BY
 HAVING
     COUNT(WO.ORD_ID_WO) > 2;
 
-
-
---------------------------------------------------------------- GAYATHRI NARAYANAN ----------------------------------------------------------------------------------
-
 /*************************** QUESTIONS FROM JOINS DATA **********************************/
 
 
@@ -156,7 +143,7 @@ FROM
 TBL_STUDENT T1
 LEFT JOIN TBL_MAPPING T2 ON T1.STU_ID = T2.STU_ID;
 
---Q3: Display details of students which are not yet enrolled to any course.
+--Q3: Display details of students who are not yet enrolled in any course.
 
 SELECT
 *
@@ -197,10 +184,7 @@ GROUP BY
 B.COURSE_ID, NAME;
 
 
-
-
--------------------------------------------------------------------------------------------------------------
-/************************* QUESTIONS FROM MSO DATABASE **********************************/
+#************************* QUESTIONS FROM MSO DATABASE **********************************/
 
 --CUSTOMER DETAILS
 SELECT * FROM TBL_CUSTOMER
@@ -223,8 +207,8 @@ FROM
 TBL_CUSTOMER
 INNER JOIN TBL_HOUSE ON CUST_ID_CUS = CUST_ID_HSE;
 
---Q1: In order to post welcome letters and user guides to customers, dispatch team need 
---   customer name, address and contact details. Write SQL query to get desired info.
+--Q1: To post welcome letters and user guides to customers, the dispatch team need 
+--   customer name, address, and contact details. Write SQL query to get desired info.
 
 select 
 concat(FNAME_CUS,' ', LNAME_CUS) as Customer_Name,
@@ -252,7 +236,7 @@ concat(FNAME_CUS,' ', LNAME_CUS),
 PHONE_CUS
 HAVING COUNT(HOUSE_ID_HSE)>1
 
---Q3: Which are the customers that have not given their house details.
+--Q3: Which are the customers that have not given their house details?
 
 SELECT COUNT(*) AS CUST_WITH_NO_HOUSE FROM (
 select 
@@ -293,7 +277,7 @@ HOUSE_ID_HSE=A.HOUSE_ID_WO AND CUST_ID_HSE=A.CUST_ID_WO
 
 
 
---Q4: Get the location details along with count of services installed in the location.
+--Q4: Get the location details along with a count of services installed in the location.
 
 SELECT * FROM TBL_ORDER_ITEM
 
